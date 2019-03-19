@@ -1,0 +1,1 @@
+select max(Salary) as SecondHighestSalary from Employee t where t.Salary <> (select max(Salary) from Employee)
