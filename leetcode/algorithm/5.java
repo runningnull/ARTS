@@ -1,3 +1,6 @@
+/**
+*    更优解：Manacher算法  
+*/
 class Solution {
     public String longestPalindrome(String s) {
         if (s.length() == 0) {
