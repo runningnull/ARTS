@@ -7,6 +7,7 @@ mysql 索引
 锁
 redis
 sql编写能力
+执行计划
 
 java：
 多线程
