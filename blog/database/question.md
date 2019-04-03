@@ -5,12 +5,12 @@ b+树，b树
 mysql 事务
 mysql 索引
 锁
-redis
-sql编写能力
+redis 源码
+sql编写能力(完成)
 执行计划
 
 java：
-多线程
+多线程（thread，runnable，callable future）
 锁
 jvm（进行中）
 集合类（hashmap）
@@ -39,6 +39,10 @@ mq
 docker  docker exec -it 8e /bin/bash
 
 
+工具：
+awk,sed,ps，grep,
+jvm 监控工具jconsole,visual vm 使用(完成)
+
 其它：
 分布式系统原理
 系统设计能力
@@ -50,10 +54,6 @@ docker  docker exec -it 8e /bin/bash
 
 
 ---
-作者：java架构交流
-链接：https://zhuanlan.zhihu.com/p/58280588
-来源：知乎
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 自我介绍和项目
 HashMap底层如何实现？
