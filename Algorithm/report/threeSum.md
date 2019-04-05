@@ -43,7 +43,7 @@ public List<List<Integer>> threeSum(int[] nums) {
 }
 ```
 
-虽然上面代码可以求出正确的结果，但是时间复杂度已经是 O(n^3), 这是无法容忍的，而且一向以宽容著称的 LeetCode 也给出了 <font color=red>Time Limit Exceeded </font> ，既然是超时，那么我的初步优化想法是将算法复杂度尽量从 O(n^3) 降到 O(n^2)，考虑到因为数组已经排序过了，在有序数组中查询元素的常用时间复杂度较低的算法就是二分了。所以<font color=#C8B915>我将上面代码的 3 层嵌套查询优化为了 2 层嵌套查询+1 次二分查询。另外不在使用 Set 集合进行去重，而是直接进行逻辑判断去重，因为 Set 的 contains 方法也是线性查找的，另外字符串拼接十分耗费时间和空间</font>  
+虽然上面代码可以求出正确的结果，但是时间复杂度已经是 O(n^3), 这是无法容忍的，而且一向以宽容著称的 LeetCode 也给出了 <font color=red>Time Limit Exceeded </font> ，既然是超时，那么我的初步优化想法是将算法复杂度尽量从 O(n^3) 降到 O(n^2)，考虑到因为数组已经排序过了，在有序数组中查询元素的常用时间复杂度较低的算法就是二分了。所以<font color=#C8B915>我将上面代码的 3 层嵌套查询优化为了 2 层嵌套查询+1 次二分查询。另外不在使用 Set 集合进行去重，而是直接进行逻辑判断去重，因为 Set 的 contains 方法也是线性查找的，另外字符串拼接十分耗费时间和空间。</font>  
 
 ```java
 public List<List<Integer>> threeSum(int[] nums) {
