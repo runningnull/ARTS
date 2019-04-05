@@ -83,42 +83,44 @@ public List<List<Integer>> threeSum(int[] nums) {
 }
 ```
 
-值得高兴的是，上面代码通过了测试，耗时 151 ms ，这个运行时间在所有 Java 提交记录中，排名倒数20%，所以我们的代码还是有很大的改进空间。因为我们上面的代码时间复杂度还是 O(n^2 * logn) 并没有真正达到 O(n^2)。后来看到一个评论说定义三个指针，然后将三数之和转化为两数之和。忽然就明白了，原来我之前是 nums[i] + nums[j] = nums[k] 这种方式来计算的，这种做法必定要进行三次查询，哪怕我上面把查询 nums[k] 的复杂度降到了 logn ,这也是不够优美的解法，
+值得高兴的是，上面代码通过了测试，耗时 151 ms ，这个运行时间在所有 Java 提交记录中，排名倒数20%，所以我们的代码还是有很大的改进空间。因为我们上面的代码时间复杂度还是 O(n^2 * logn) 并没有真正达到 O(n^2)。后来看到一个评论说定义三个指针，然后将三数之和转化为两数之和 nums[i] = nums[j] + nums[k]。nums[j] + nums[k] 可以用两个指针分别从左右两边向中间扫描，这样的时间复杂度就是 O(n) ，而总共的最坏时间复杂度就是 O(n^2) 。  
+
+以下就是优化后的解法：  
 
 ```java
 public List<List<Integer>> threeSum(int[] nums) {
-        int len = nums.length;
-        if (len < 3) {
-            return Collections.EMPTY_LIST;
-        }
-        Arrays.sort(nums);
-        if (nums[0] > 0 || nums[len - 1] < 0) { //对于一定不存在结果的数组进行特判
-            return Collections.EMPTY_LIST;
-        }
-        List<List<Integer>> result = new ArrayList<>();
-        for (int i = 0; i < len - 2; i++) {
-            if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            }
-            int left = i + 1, right = len - 1; //定义左右两个扫描指针
-            int target;
-            while (left < right) {
-                target = nums[i] + nums[left] + nums[right];
-                if (target == 0) {
-                    result.add(Arrays.asList(nums[i], nums[left], nums[right]));
-                    while (left + 1 < right && nums[left] == nums[left - 1]) {
-                        left++; //判重
-                    }
-                    while (right - 1 > left && nums[right] == nums[right - 1]) {
-                        right--; //判重
-                    }
-                } else if (target < 0) {
-                    left++;
-                } else {
-                    right--;
-                }
-            }
-        }
-        return result;
+    int len = nums.length;
+    if (len < 3) {
+        return Collections.EMPTY_LIST;
     }
+    Arrays.sort(nums);
+    if (nums[0] > 0 || nums[len - 1] < 0) { //对于一定不存在结果的数组进行特判
+        return Collections.EMPTY_LIST;
+    }
+    List<List<Integer>> result = new ArrayList<>();
+    for (int i = 0; i < len - 2; i++) {
+        if (i > 0 && nums[i] == nums[i - 1]) {
+            continue;
+        }
+        int left = i + 1, right = len - 1; //定义左右两个扫描指针
+        int target;
+        while (left < right) {
+            target = nums[i] + nums[left] + nums[right];
+            if (target == 0) {
+                result.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                while (left + 1 < right && nums[left] == nums[left - 1]) {
+                    left++; //判重
+                }
+                while (right - 1 > left && nums[right] == nums[right - 1]) {
+                    right--; //判重
+                }
+            } else if (target < 0) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+    }
+    return result;
+}
 ```
