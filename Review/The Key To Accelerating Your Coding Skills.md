@@ -16,3 +16,6 @@
 * 开发过程中学会重复使用轮子，如果不能使用以前的轮子，就需要思考为什么不能使用，有什么地方可以改进等  
 
 个人感觉这种方法论的文章，都差不多，不仅仅是在编程方面，在其它方面，比如摄影也是一样的道理，学习摄影的过程，首先也是先看懂相机的说明书，然后再拍摄，如果出现“过曝”等情况，要学会处理。再积累了一定经验之后要开始学习更专业的知识，形成自己的风格等等。  
+
+
+[The Key To Accelerating Your Coding Skills](http://blog.thefirehoseproject.com/posts/learn-to-code-and-be-self-reliant/)
